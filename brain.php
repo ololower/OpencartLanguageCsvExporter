@@ -151,13 +151,16 @@ class OpencartLanguageCsvImporter {
     private function csv_to_array($filename='', $delimiter=';')
     {
         $lines = explode( "\n", file_get_contents( $filename ) );
-        $headers = str_getcsv( array_shift( $lines ) );
+        
         $data = array();
         foreach ( $lines as $line ) {
             $row = array();
             $str_csv = str_getcsv( $line );
             $data[$str_csv[0]] = $str_csv[1];
+            print $str_csv[0] . "\n";
         }
         return $data;   
+
+        
     }
 }
